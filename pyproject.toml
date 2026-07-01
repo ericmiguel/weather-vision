@@ -1,0 +1,75 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/wv"]
+
+[project]
+name = "weather-vision"
+version = "0.1.0"
+description = "Weather image analysis using LLMs."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pydantic-ai-slim[openrouter]>=0.3",
+    "pydantic-settings>=2.6",
+    "pyrefly>=1.1.1",
+    "typer>=0.15",
+]
+
+[project.scripts]
+wv = "wv.cli:app"
+
+[tool.ruff]
+target-version = "py313"
+line-length = 88
+
+[tool.ruff.lint]
+select = [
+    "D",   # pydocstyle
+    "DOC", # ruff docstring rules
+    "E",   # pycodestyle errors
+    "F",   # pyflakes
+    "W",   # pycodestyle warnings
+    "I",   # isort (import ordering)
+    "N",   # pep8-naming
+    "UP",  # pyupgrade
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "SIM", # flake8-simplify
+    "ARG", # flake8-unused-arguments
+    "PTH", # flake8-use-pathlib
+    "ERA", # eradicate (commented code)
+    "PLC", # pylint convention
+    "PLE", # pylint error
+    "PLR", # pylint refactor
+    "PLW", # pylint warning
+    "RUF", # ruff-specific rules
+    "TCH", # flake8-type-checking
+]
+ignore = ["B008"]
+preview = true
+fixable = ["ALL"]
+unfixable = []
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
+
+[tool.ruff.lint.isort]
+force-single-line = true
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.uv]
+required-version = ">=0.6.0"
+compile-bytecode = true
+
+[tool.pyrefly]
+python_version = "3.13"
+python_platform = "linux"
+strict = true
+warn_unused_ignores = true
