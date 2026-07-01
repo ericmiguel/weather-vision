@@ -1,6 +1,6 @@
 # Weather Vision
 
-AI-powered meteorological image analysis (e.g., GOES-R / INMET IR channel) via OpenRouter, with structured output guaranteed by [PydanticAI](https://ai.pydantic.dev/) and Pydantic v2 schemas.
+AI-powered meteorological image analysis with structured output schemas.
 
 ## Installation
 
@@ -23,17 +23,11 @@ Accepted formats: `.png`, `.jpg`, `.jpeg`.
 
 ## Example output
 
-<table>
-<tr>
-<th>Input image</th>
-<th>Structured output (JSON)</th>
-</tr>
-<tr>
-<td>
+**Input image**
 
-<img src="data/examples/inmet_20260628_001000_ch13.jpg" alt="GOES-R IR ch13" style="width:100%; height:auto;">
-</td>
-<td>
+<img src="data/examples/inmet_20260628_001000_ch13.jpg" alt="GOES-R IR ch13" width="700">
+
+**Structured output (JSON)**
 
 ```json
 {
@@ -61,10 +55,6 @@ Accepted formats: `.png`, `.jpg`, `.jpeg`.
   ]
 }
 ```
-
-</td>
-</tr>
-</table>
 
 ## Local validation
 
